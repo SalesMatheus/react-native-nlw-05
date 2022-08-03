@@ -17,12 +17,16 @@ import { Button } from '../components/Button';
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 
+type Nav = {
+    navigate: (value: string) => void;
+}
+
 export function UserIdentification() {
     const [ isFocused, setIsFocused ] = useState(false);
     const [ isFilled, setIsFilled ] = useState(false);
     const [ name, setName ] = useState<string>();
 
-    const navigation = useNavigation();
+    const navigation = useNavigation<Nav>();
 
     function handleSubmit(){
         navigation.navigate('Confirmation');

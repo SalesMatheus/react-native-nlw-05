@@ -15,8 +15,13 @@ import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 import { useNavigation } from "@react-navigation/core";
 
+
+type Nav = {
+    navigate: (value: string) => void;
+}
+
 export function Welcome(){
-    const navigation = useNavigation();
+    const navigation = useNavigation<Nav>();
 
     function handleStart(){
         navigation.navigate('UserIdentification');
