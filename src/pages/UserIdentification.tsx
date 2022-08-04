@@ -19,23 +19,30 @@ import { Button } from '../components/Button';
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 
-type Nav = {
-    navigate: (value: string) => void;
-}
-
 export function UserIdentification() {
     const [ isFocused, setIsFocused ] = useState(false);
     const [ isFilled, setIsFilled ] = useState(false);
     const [ name, setName ] = useState<string>();
 
-    const navigation = useNavigation<Nav>();
+    const navigation = useNavigation<any>();
 
     async function handleSubmit(){
         if(!name)
             return Alert.alert("Preencha o seu nome 😅")
 
-        await AsyncStorage.setItem("@plantmanager:username", name);
-        navigation.navigate('Confirmation');
+        try {
+            await AsyncStorage.setItem("@plantmanager:username", name);
+            navigation.navigate('Confirmation', {
+                title: 'Prontinho',
+                subtitle: 'Agora vamos começar a cuidar das suas plantinhas com muito cuidado.',
+                buttonTitle: 'Começar',
+                icon: 'smile',
+                nextScreen: 'PlantSelect',
+            }); 
+            
+        } catch {
+            Alert.alert("Não foi possível salvar o seu nome");
+        }
     }
 
     function handlerInputBlur(){
