@@ -6,13 +6,13 @@ import {
     FlatList,
     ActivityIndicator
 } from "react-native";
-import { EnviromentButton } from "../components/EnviromentButton";
 
 import api from "../service/api";
 
 import { Load } from "../components/Load";
 import { Header } from "../components/Header";
 import { PlantCardPrimary } from "../components/PlantCardPrimary";
+import { EnviromentButton } from "../components/EnviromentButton";
 
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
@@ -23,15 +23,15 @@ interface EnviromentProps {
 }
 interface PlantsProps {
     id: 1;
-      name:string;
-      about: string;
-      water_tips: string;
-      photo: string;
-      environments: [string];
-      frequency: {
+    name:string;
+    about: string;
+    water_tips: string;
+    photo: string;
+    environments: [string];
+    frequency: {
         times: number;
         repeat_every: string;
-      }
+    }
 }
 
 export function PlantSelect() {
@@ -75,8 +75,8 @@ export function PlantSelect() {
             return setLoading(true)
 
         if(page > 1){
-            setPlants(oldValue => [...oldValue, ...data])
-            setFilteredPlants(oldValue => [...oldValue, ...data])
+            setPlants(oldValue => [...oldValue as [], ...data])
+            setFilteredPlants(oldValue => [...oldValue as [], ...data])
         }else{
             setPlants(data);
             setFilteredPlants(data);
@@ -100,12 +100,7 @@ export function PlantSelect() {
         }
 
         fetchEnviroment();
-
-    },[]);
-
-    useEffect(() => {
         fetchPlants();
-
     },[]);
 
     if(loading)

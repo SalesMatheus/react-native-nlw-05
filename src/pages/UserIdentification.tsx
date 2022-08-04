@@ -8,9 +8,11 @@ import {
     TextInput,
     Platform,
     TouchableWithoutFeedback,
-    Keyboard
+    Keyboard,
+    Alert
 } from "react-native";
 import { useNavigation } from '@react-navigation/core';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Button } from '../components/Button';
 
@@ -28,7 +30,11 @@ export function UserIdentification() {
 
     const navigation = useNavigation<Nav>();
 
-    function handleSubmit(){
+    async function handleSubmit(){
+        if(!name)
+            return Alert.alert("Preencha o seu nome 😅")
+
+        await AsyncStorage.setItem("@plantmanager:username", name);
         navigation.navigate('Confirmation');
     }
 
