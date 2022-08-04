@@ -5,8 +5,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Welcome } from "../pages/Welcome";
 import { UserIdentification } from "../pages/UserIdentification";
 import { Confirmation } from "../pages/Confirmation";
-import colors from "../styles/colors";
 import { PlantSelect } from "../pages/PlantSelect";
+import { PlantSave } from "../pages/PlantSave";
+
+import colors from "../styles/colors";
 
 const stackRoutes = createNativeStackNavigator();
 
@@ -36,6 +38,10 @@ export function AppRoutes(){
                 <stackRoutes.Screen
                     name="PlantSelect"
                     component={PlantSelect}
+                />
+                <stackRoutes.Screen
+                    name="PlantSave"
+                    component={PlantSave}
                 />
             </stackRoutes.Navigator>
         </NavigationContainer>
