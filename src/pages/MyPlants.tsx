@@ -116,17 +116,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingHorizontal: 30,
-        paddingTop: 50,
         backgroundColor: colors.background
     },
     spotlight: {
-     backgroundColor: colors.blue_light,
-     paddingHorizontal: 20,
-     borderRadius: 20,
-     height: 110,
-     flexDirection: 'row',
-     justifyContent: 'space-between',
-     alignItems: 'center'
+        backgroundColor: colors.blue_light,
+        paddingHorizontal: 20,
+        borderRadius: 20,
+        height: 110,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
     },
     spotlightImage: {
         width: 60,
