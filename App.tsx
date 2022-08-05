@@ -17,7 +17,7 @@ export default function App(){
     Jost_600SemiBold,
   });
 
-  useEffect(() => {
+  // useEffect(() => {
     // Notifications.setNotificationHandler({
     //   handleNotification: async () => ({
     //     shouldShowAlert: true,
@@ -44,7 +44,7 @@ export default function App(){
     // }
 
     // notifications();
-  },[])
+  // },[])
 
   if(!fontsLoaded)
     return <AppLoading />
